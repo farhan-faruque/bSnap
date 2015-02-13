@@ -14,4 +14,5 @@ ActiveAdmin.register Location do
   # end
   permit_params :name
 
+
 end

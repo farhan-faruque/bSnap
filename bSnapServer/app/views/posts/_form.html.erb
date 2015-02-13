@@ -1,0 +1,51 @@
+
+<%= form_for @post,:html => { :class => "form-horizontal center" } do |f| %>
+    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :title, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :location,class: "col-sm-12 control-label"%>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.select(:location, Location.all.collect {|a| [a.name, a.id]}, {class: "form-control"}) %>
+      </div >
+    </div>
+
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :description, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="actions">
+          <%= f.submit :create %>
+        </div>
+      </div>
+    </div>
+
+<% end %>
