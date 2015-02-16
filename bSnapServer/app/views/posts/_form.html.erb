@@ -26,7 +26,7 @@
         <%= f.label :location,class: "col-sm-12 control-label"%>
       </div>
       <div  class="col-sm-6">
-        <%= f.select(:location, Location.all.collect {|a| [a.name, a.id]}, {class: "form-control"}) %>
+        <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"} %>
       </div >
     </div>
 
