@@ -26,7 +26,7 @@
         <%= f.label :location,class: "col-sm-12 control-label"%>
       </div>
       <div  class="col-sm-6">
-        <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"} %>
+            <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a locatiom"}, {class: "form-control"} %>
       </div >
     </div>
 
@@ -37,6 +37,15 @@
       </div>
       <div  class="col-sm-6">
         <%= f.text_area :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :categories, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.collection_select :category_ids, Category.all,:id,:name,{ :prompt => "Please select"}, { :multiple => true,class: "form-control"} %><br>
       </div>
     </div>
 
