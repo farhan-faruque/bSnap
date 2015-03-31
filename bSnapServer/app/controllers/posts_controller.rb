@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :set_search, only: [:show, :edit, :update, :destroy]
+  before_action  :authenticate_user!, only: [:new,:edit, :update, :destroy]
 
   # GET /searches
   # GET /searches.json
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
   # POST /searches
   # POST /searches.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -70,7 +71,7 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :location_id, :description)
+    params.require(:post).permit(:title, :location_id,:image, :description,:category_ids => [])
   end
 end
 

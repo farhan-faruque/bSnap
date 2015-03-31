@@ -1,0 +1,20 @@
+<div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+  <div class="media">
+    <a class="pull-left" href="#" target="_parent">
+      <%= image_tag post.image.url(:medium),class:"img-responsive" %>
+    </a>
+
+    <div class="clearfix visible-sm"></div>
+
+    <div class="media-body fnt-smaller">
+      <a href="#" target="_parent"></a>
+
+      <h4 class="media-heading">
+        <a href="#" target="_parent"><%= post.title %> <small class="pull-right"><%=  post.location %></small></a></h4>
+
+      <p class="hidden-xs"><%= post.description%></p>
+      <span class="fnt-smaller fnt-lighter fnt-arial"><%=  post.user %></span>
+    </div>
+  </div>
+
+</div><!-- End Listing-->

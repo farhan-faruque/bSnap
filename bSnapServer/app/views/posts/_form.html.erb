@@ -1,5 +1,5 @@
 
-<%= form_for @post,:html => { :class => "form-horizontal center" } do |f| %>
+<%= form_for @post,:html => { :multipart => true,:class => "form-horizontal center" } do |f| %>
     <% if @post.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,6 +11,23 @@
           </ul>
         </div>
     <% end %>
+
+    <div class="form-group">
+      <div class="col-sm-6 col-md-4  col-sm-offset-2">
+        <div class="thumbnail">
+          <%= image_tag('cam.png') %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :image, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+    </div>
 
     <div class="form-group">
       <div  class="col-sm-2">
@@ -26,7 +43,7 @@
         <%= f.label :location,class: "col-sm-12 control-label"%>
       </div>
       <div  class="col-sm-6">
-        <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"} %>
+            <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a locatiom"}, {class: "form-control"} %>
       </div >
     </div>
 
@@ -37,6 +54,15 @@
       </div>
       <div  class="col-sm-6">
         <%= f.text_area :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :categories, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.collection_select :category_ids, Category.all,:id,:name,{ :prompt => "Please select"}, { :multiple => true,class: "form-control"} %><br>
       </div>
     </div>
 
