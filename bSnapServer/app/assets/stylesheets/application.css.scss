@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -75,4 +78,13 @@ a {
   #property-listings .property-listing img {
     max-width: 180px;
   }
+}
+
+.filter-options {
+  background-color: #f8f8f8;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+.blue {
+  color: #00adef;
 }

@@ -1,33 +1,79 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @post,:html => { :class => "form-horizontal center" } do |f| %>
+    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :image, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-3">
+        <%= image_tag('cam.png',height:90,class: "form-control") %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :image, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.file_field :file, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :title, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :location,class: "col-sm-12 control-label"%>
+      </div>
+      <div  class="col-sm-6">
+            <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a locatiom"}, {class: "form-control"} %>
+      </div >
+    </div>
+
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :description, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  class="col-sm-2">
+        <%= f.label :categories, class: "col-sm-12 control-label"%><br>
+      </div>
+      <div  class="col-sm-6">
+        <%= f.collection_select :category_ids, Category.all,:id,:name,{ :prompt => "Please select"}, { :multiple => true,class: "form-control"} %><br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="actions">
+          <%= f.submit :create %>
+        </div>
+      </div>
+    </div>
+
 <% end %>
