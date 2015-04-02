@@ -10,12 +10,12 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-          <li> <%= link_to 'Signout', destroy_user_session_path, html_options = { method: :delete} %> </li>
+        <%= render 'user_nav_bar' %>
       <% else %>
           <li> <%= link_to 'Signin', new_user_session_path %> </li>
       <% end %>
 
-      <li> <%= link_to 'Add Post', new_post_path %> </li>
+      <li> <%= link_to 'Post Ad', new_post_path %> </li>
     </ul>
   </div>
 </nav>
