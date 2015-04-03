@@ -1,29 +1,111 @@
-<h2>Sign up</h2>
+<form class="form-horizontal">
+  <fieldset>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <!-- Form Name -->
+    <legend>Register</legend>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="name">Name:</label>
+      <div class="col-md-4">
+        <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="email">Email:</label>
+      <div class="col-md-4">
+        <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      </div>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Pawword:</label>
+      <div class="col-md-4">
+        <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordconfirm">Confirm Password:</label>
+      <div class="col-md-4">
+        <input id="passwordconfirm" name="passwordconfirm" type="text" placeholder="" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="mobile">Mobile No. :</label>
+      <div class="col-md-4">
+        <input id="mobile" name="mobile" type="text" placeholder="" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Multiple Checkboxes (inline) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="makeasprivate"></label>
+      <div class="col-md-4">
+        <label class="checkbox-inline" for="makeasprivate-0">
+          <input type="checkbox" name="makeasprivate" id="makeasprivate-0" value="1">
+          make as private
+        </label>
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectlocation">Location</label>
+      <div class="col-md-4">
+        <select id="selectlocation" name="selectlocation" class="form-control">
+          <option value="1">Option one</option>
+          <option value="2">Option two</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Multiple Radios -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="radio"></label>
+      <div class="col-md-4">
+        <div class="radio">
+          <label for="radio-0">
+            <input type="radio" name="radio" id="radio-0" value="1" checked="checked">
+            Business
+          </label>
+        </div>
+        <div class="radio">
+          <label for="radio-1">
+            <input type="radio" name="radio" id="radio-1" value="2">
+            personal
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- File Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="image">Image </label>
+      <div class="col-md-4">
+        <input id="image" name="image" class="input-file" type="file">
+      </div>
+    </div>
+
+    <!-- Button (Double) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submit"></label>
+      <div class="col-md-8">
+        <button id="submit" name="submit" class="btn btn-primary">Save</button>
+        <button id="cancel" name="cancel" class="btn btn-inverse">Cancel</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
