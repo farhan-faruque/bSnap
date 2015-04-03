@@ -24,7 +24,7 @@
 
     <!-- Password input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="passwordinput">Pawword:</label>
+      <label class="col-md-4 control-label" for="passwordinput">Password:</label>
       <div class="col-md-4">
         <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md">
 
@@ -47,11 +47,6 @@
         <input id="mobile" name="mobile" type="text" placeholder="" class="form-control input-md">
 
       </div>
-    </div>
-
-    <!-- Multiple Checkboxes (inline) -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="makeasprivate"></label>
       <div class="col-md-4">
         <label class="checkbox-inline" for="makeasprivate-0">
           <input type="checkbox" name="makeasprivate" id="makeasprivate-0" value="1">
@@ -59,6 +54,7 @@
         </label>
       </div>
     </div>
+
 
     <!-- Select Basic -->
     <div class="form-group">
@@ -73,26 +69,35 @@
 
     <!-- Multiple Radios -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="radio"></label>
+      <label class="col-md-4 control-label" for="radio">Looking for : </label>
       <div class="col-md-4">
-        <div class="radio">
-          <label for="radio-0">
-            <input type="radio" name="radio" id="radio-0" value="1" checked="checked">
-            Business
-          </label>
-        </div>
-        <div class="radio">
-          <label for="radio-1">
-            <input type="radio" name="radio" id="radio-1" value="2">
-            personal
-          </label>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="radio">
+              <label for="radio-1">
+                <input type="radio" name="radio" id="radio-1" value="2" checked="checked">
+                Personal
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="radio">
+              <label for="radio-0">
+                <input type="radio" name="radio" id="radio-0" value="1" >
+                Business
+              </label>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
 
     <!-- File Button -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="image">Image </label>
+      <label class="col-md-4 control-label" for="image">Image: </label>
       <div class="col-md-4">
         <input id="image" name="image" class="input-file" type="file">
       </div>
