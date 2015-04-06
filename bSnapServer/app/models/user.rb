@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_one :profile, dependent: :destroy
+  has_many :authentications, dependent: :destroy
 
   def to_s
     email
