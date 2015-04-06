@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406052452) do
+ActiveRecord::Schema.define(version: 20150406084622) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -75,12 +75,13 @@ ActiveRecord::Schema.define(version: 20150406052452) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.boolean  "lookingfor",     limit: 1
+    t.integer  "lookingfor",     limit: 4
     t.integer  "location_id",    limit: 4
     t.string   "mobile_no",      limit: 255
     t.boolean  "mobile_private", limit: 1
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "user_id",        limit: 4
   end
 
   create_table "searches", force: :cascade do |t|

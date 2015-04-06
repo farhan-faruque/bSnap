@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <%= f.fields_for :profile do |profile_form| %>
+        <%= fields_for :profile do |profile_form| %>
             <!-- Select Basic -->
             <div class="form-group">
               <label class="col-md-4 control-label" for="selectlocation">Location</label>
@@ -60,7 +60,7 @@
                       <div class="col-md-4">
                         <div class="radio">
                           <label for="radio-0">
-                            <%= profile_form.radio_button :looking_for,index %>
+                            <%= profile_form.radio_button :lookingfor,index %>
                             <%= item %>
                           </label>
                         </div>
