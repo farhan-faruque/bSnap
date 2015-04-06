@@ -8,9 +8,8 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     if current_user
-
       profile = current_user.build_profile profile_params
-
+      profile.save
     end
 
   end

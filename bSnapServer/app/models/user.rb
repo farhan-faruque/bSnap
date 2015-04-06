@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :user_name,presence: true
 
   has_many :posts
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   def to_s
     email
