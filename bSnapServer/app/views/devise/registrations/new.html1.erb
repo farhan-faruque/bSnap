@@ -1,0 +1,100 @@
+<form class="form-horizontal">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Register</legend>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="name">Name:</label>
+      <div class="col-md-4">
+        <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="email">Email:</label>
+      <div class="col-md-4">
+        <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Password:</label>
+      <div class="col-md-4">
+        <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordconfirm">Confirm Password:</label>
+      <div class="col-md-4">
+        <input id="passwordconfirm" name="passwordconfirm" type="text" placeholder="" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectlocation">Location</label>
+      <div class="col-md-4">
+        <select id="selectlocation" name="selectlocation" class="form-control">
+          <option value="1">Option one</option>
+          <option value="2">Option two</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Multiple Radios -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="radio">Looking for : </label>
+      <div class="col-md-4">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="radio">
+              <label for="radio-1">
+                <input type="radio" name="radio" id="radio-1" value="2" checked="checked">
+                Personal
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="radio">
+              <label for="radio-0">
+                <input type="radio" name="radio" id="radio-0" value="1" >
+                Business
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- File Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="image">Image: </label>
+      <div class="col-md-4">
+        <input id="image" name="image" class="input-file" type="file">
+      </div>
+    </div>
+
+    <!-- Button (Double) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submit"></label>
+      <div class="col-md-8">
+        <button id="submit" name="submit" class="btn btn-primary">Save</button>
+        <button id="cancel" name="cancel" class="btn btn-inverse">Cancel</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
