@@ -2,14 +2,34 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,:omniauthable,:omniauth_providers => [:facebook, :google]
+
   validates :user_name,presence: true
 
   has_many :posts
   has_one :profile, dependent: :destroy
   has_many :authentications, dependent: :destroy
 
+  def apply_omniauth(omniauth)
+    self.email = omniauth['info']['email'] if email.blank?
+    self.name  = omniauth['info']['name']  if name.blank?
+    authentications.build :provider => omniauth['provider'], :uid => omniauth['uid']#, :data => omniauth.to_json
+  end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
+    end
+  end
+
   def to_s
     email
   end
+
 end
