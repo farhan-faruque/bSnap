@@ -28,6 +28,8 @@ gem 'activeadmin', github: 'activeadmin'
 gem "paperclip", "~> 4.2"
 gem "select2-rails"
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,8 +41,9 @@ gem "select2-rails"
 
 gem 'sprockets-rails','2.2.2'
 gem 'bootstrap-sass', '~> 3.3.1'
-
 gem 'autoprefixer-rails'
+gem 'omniauth-google'
+gem 'omniauth-facebook'
 
 group :production do
   gem 'pg'
