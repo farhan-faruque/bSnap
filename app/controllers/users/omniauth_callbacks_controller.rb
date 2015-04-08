@@ -42,7 +42,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
 
-
   protected
 
   def find_authentication
