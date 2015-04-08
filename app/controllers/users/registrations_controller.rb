@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @looking_for = ["Personal" , "Business"]

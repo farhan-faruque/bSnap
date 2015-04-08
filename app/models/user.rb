@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :authentications, dependent: :destroy
 
+  def make_random_password
+    self.password = self.password_confirmation = Devise.friendly_token[0,10]
+  end
+
   def apply_omniauth(omniauth)
     self.email = omniauth['info']['email'] if email.blank?
     self.name  = omniauth['info']['name']  if name.blank?
