@@ -14,6 +14,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   end
 
+
+  def build_resource(*args)
+    super
+    if session['devise.omniauth']
+      @user.apply_omniauth(session['devise.omniauth'])
+      #@user.build_user_profile(session['devise.omniauth'],session["devise.original.image"])
+      @user.valid?
+    end
+  end
+
+
   private
 
   def sign_up_params

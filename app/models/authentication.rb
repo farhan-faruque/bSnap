@@ -9,7 +9,7 @@ class Authentication < ActiveRecord::Base
     end
 
     def facebook
-      where(:provider => 'google').first
+      where(:provider => 'facebook').first
     end
 
     def google

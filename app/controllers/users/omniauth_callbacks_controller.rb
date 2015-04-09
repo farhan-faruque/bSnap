@@ -6,6 +6,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
      omniauth_authorize_additional_account || omniauth_sign_in || omniauth_sign_up
    end
 
+  def google
+    authenticate
+  end
+
+  def facebook
+    authenticate
+  end
+
+  def authenticate
+    omniauth_authorize_additional_account || omniauth_sign_in || omniauth_sign_up
+  end
+
   def omniauth_authorize_additional_account
     return false unless user_signed_in?
 
@@ -35,7 +47,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => @omniauth['provider']
       sign_in_and_redirect(:user, user)
     else
-      session["devise.original.image"] = image_url
+      #session["devise.original.image"] = image_url
       session["devise.omniauth"] = @omniauth.except("extra")
       redirect_to new_user_registration_path
     end

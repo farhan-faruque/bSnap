@@ -84,12 +84,12 @@ ActiveRecord::Schema.define(version: 20150406085715) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer  "lookingfor",     limit: 4
     t.integer  "location_id",    limit: 4
     t.string   "mobile_no",      limit: 255
     t.boolean  "mobile_private", limit: 1
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "lookingfor",     limit: 4,   default: 0
     t.integer  "user_id",        limit: 4
   end
 
