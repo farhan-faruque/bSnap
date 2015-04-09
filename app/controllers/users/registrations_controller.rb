@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :configure_permitted_parameters
 
   def new
     @looking_for = ["Personal" , "Business"]
@@ -6,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    @looking_for = ["Personal" , "Business"]
     super
     if current_user
       profile = current_user.build_profile profile_params
@@ -27,12 +29,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def sign_up_params
-    params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
-  end
+  # def sign_up_params
+  #   #params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
+  #   devise_parameter_sanitizer.for(:user) { |u| u.permit(:user_name, :email, :password, :password_confirmation) }
+  # end
+  #
+  # def account_update_params
+  #   #params.require(:user).permit(:user_name, :email, :password, :password_confirmation, :current_password)
+  #   devise_parameter_sanitizer.for(:user) { |u| u.permit(:user_name, :email, :password, :password_confirmation,:current_password) }
+  # end
 
-  def account_update_params
-    params.require(:user).permit(:user_name, :email, :password, :password_confirmation, :current_password)
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:user_name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:user_name, :email, :password, :password_confirmation, :current_password) }
   end
 
   def profile_params

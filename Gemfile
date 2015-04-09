@@ -27,6 +27,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem "paperclip", "~> 4.2"
 gem "select2-rails"
+gem 'hashie'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 

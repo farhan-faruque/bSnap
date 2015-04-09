@@ -39,7 +39,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def omniauth_sign_up
-    email = @omniauth.deep_find("email")
+    email = @omniauth.info.email #deep_find of hashie is not working
     user = User.where(email: email).first unless email.blank?
     if user && user.valid?
       user.apply_omniauth @omniauth
