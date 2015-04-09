@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
      omniauth_authorize_additional_account || omniauth_sign_in || omniauth_sign_up
    end
 
-  def google
+  def google_oauth2
     authenticate
   end
 

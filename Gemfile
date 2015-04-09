@@ -42,7 +42,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'sprockets-rails','2.2.2'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
-gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
 group :production do

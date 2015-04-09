@@ -12,7 +12,7 @@ class Authentication < ActiveRecord::Base
       where(:provider => 'facebook').first
     end
 
-    def google
+    def google_oauth2
       where(:provider => 'google').first
     end
 

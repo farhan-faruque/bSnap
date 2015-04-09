@@ -14,10 +14,10 @@
       </div>
 
       <div class="col-xs-6 col-sm-3">
-        <a href="#" class="btn btn-lg btn-block omb_btn-google">
-          <i class="fa fa-google-plus visible-xs"></i>
-          <span class="hidden-xs">Google+</span>
-        </a>
+        <%= link_to user_omniauth_authorize_path(:google_oauth2), class:"btn btn-lg btn-block omb_btn-google" do %>
+              <i class="fa fa-google-plus visible-xs"></i>
+              <span class="hidden-xs">Google</span>
+        <%end%>
       </div>
     </div>
 
