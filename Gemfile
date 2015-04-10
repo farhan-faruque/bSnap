@@ -27,9 +27,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem "paperclip", "~> 4.2"
 gem "select2-rails"
 gem 'hashie'
-
-gem 'dotenv-rails', :groups => [:development, :test]
-gem 'sendgrid'
+gem 'sendgrid-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
