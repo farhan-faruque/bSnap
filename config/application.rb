@@ -14,6 +14,17 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+begin
+  if File.exists?(File.expand_path('../env.yml', __FILE__))
+    yml = YAML.load_file(File.expand_path('../env.yml', __FILE__))[Rails.env]
+    ENV.update(yml)
+  end
+rescue StandardError => e
+  puts e
+end
+
+
 module BSnapServer
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
