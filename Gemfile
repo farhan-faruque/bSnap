@@ -29,6 +29,7 @@ gem "select2-rails"
 gem 'hashie'
 
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'sendgrid'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

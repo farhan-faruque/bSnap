@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user
       profile = current_user.build_profile profile_params
       profile.save
+      UserMailer.welcome_mail(current_user).deliver
     end
 
   end
