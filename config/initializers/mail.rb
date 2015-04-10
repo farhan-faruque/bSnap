@@ -8,3 +8,4 @@ ActionMailer::Base.smtp_settings = {
     :user_name => Rails.application.secrets.SENDGRID_USERNAME,
     :password => Rails.application.secrets.SENDGRID_PASSWORD
 }
+ActionMailer::Base.delivery_method = :smtp
