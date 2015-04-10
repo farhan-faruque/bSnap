@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
-
+  after_action :clean_up_cache
   def new
     @looking_for = ["Personal" , "Business"]
     super
@@ -9,10 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @looking_for = ["Personal" , "Business"]
     super
+    session['devise.omniauth'] = nil unless @user.new_record?
     if current_user
       profile = current_user.build_profile profile_params
       profile.save
-      UserMailer.welcome_mail(current_user).deliver
+      UserMailer.welcome_mail(current_user).deliver_now
     end
 
   end
@@ -47,6 +48,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile_params
     params.require(:profile).permit(:location_id, :lookingfor)
+  end
+
+  def clean_up_cache
+    session['devise.omniauth'] = nil
   end
 
 end
