@@ -28,6 +28,8 @@ gem "paperclip", "~> 4.2"
 gem "select2-rails"
 gem 'hashie'
 gem 'sendgrid-rails'
+gem 'carrierwave'
+gem 'cloudinary'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
