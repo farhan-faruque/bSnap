@@ -1,7 +1,8 @@
 <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
   <div class="media">
     <a class="pull-left" href="#" target="_parent">
-      <%= image_tag post.image.url(:medium),class:"img-responsive" %>
+      <% unless post.image_url.nil? %><%= image_tag post.image_url,class:"img-responsive"  %>
+      <% end %>
     </a>
 
     <div class="clearfix visible-sm"></div>

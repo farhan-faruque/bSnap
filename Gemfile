@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-gem "paperclip", "~> 4.2"
 gem "select2-rails"
 gem 'hashie'
 gem 'sendgrid-rails'
