@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   # GET /searches/new
   def new
     @post = Post.new
+    @post_attachments = @post.post_attachments.build
   end
 
   # GET /searches/1/edit
@@ -71,7 +72,8 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :location_id,:image, :description,:category_ids => [])
+    params.require(:post).permit(:title, :location_id,:image, :description,:category_ids => [],
+                                 post_attachments_attributes: [:id, :post_id, :avatar])
   end
 end
 
