@@ -1,7 +1,7 @@
 <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
   <div class="media">
     <a class="pull-left" href="#" target="_parent">
-      <% unless post.image_url.nil? %><%= image_tag post.image_url,class:"img-responsive"  %>
+      <% unless post.post_attachments.first.nil? %><%= image_tag post.post_attachments.first,class:"img-responsive"  %>
       <% end %>
     </a>
 
