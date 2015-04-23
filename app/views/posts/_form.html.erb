@@ -13,67 +13,53 @@
     <% end %>
 
     <div class="form-group">
-      <div class="col-sm-6 col-md-4  col-sm-offset-2">
-        <div class="thumbnail">
-          <%= image_tag('cam.png') %>
-        </div>
-      </div>
-    </div>
-
-
-    <%= f.fields_for :post_attachments do |p| %>
-        <div class="form-group">
-          <div  class="col-sm-2">
-            <%= p.label :image, class: "col-sm-12 control-label"%><br>
+      <div class="col-md-offset-2">
+        <%= f.fields_for :post_attachments, @post.post_attachments do |p| %>
+          <div class="col-sm-4 col-md-3">
+            <div class="thumbnail">
+              <%= image_tag('cam.png') %><br>
+              <%= f.file_field :avatar,name: "post_attachments[avatar][]", class: "form-control" %>
+            </div>
           </div>
-          <div  class="col-sm-6">
-            <%= f.file_field :avatar, :multiple => true, name: "post_attachments[avatar][]", class: "form-control" %>
-          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :title, class: "col-md-4 control-label"%>
+      <div class="col-md-4">
+        <%= f.text_field :title, class: "form-control input-md" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :location,class: "col-md-4 control-label"%>
+      <div class="col-md-4">
+        <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a locatiom"}, {class: "form-control"} %>
         </div>
-    <% end %>
-
-    <div class="form-group">
-      <div  class="col-sm-2">
-        <%= f.label :title, class: "col-sm-12 control-label"%><br>
-      </div>
-      <div  class="col-sm-6">
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
     </div>
 
     <div class="form-group">
-      <div  class="col-sm-2">
-        <%= f.label :location,class: "col-sm-12 control-label"%>
-      </div>
-      <div  class="col-sm-6">
-            <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a locatiom"}, {class: "form-control"} %>
-      </div >
-    </div>
-
-
-    <div class="form-group">
-      <div  class="col-sm-2">
-        <%= f.label :description, class: "col-sm-12 control-label"%><br>
-      </div>
-      <div  class="col-sm-6">
+        <%= f.label :description, class: "col-md-4 control-label"%>
+      <div  class="col-md-4">
         <%= f.text_area :description, class: "form-control" %>
       </div>
     </div>
 
     <div class="form-group">
-      <div  class="col-sm-2">
-        <%= f.label :categories, class: "col-sm-12 control-label"%><br>
-      </div>
-      <div  class="col-sm-6">
+      <div  class="col-md-4">
+        <%= f.label :categories, class: "col-md-12 control-label"%><br>
+        </div>
+      <div  class="col-md-4">
         <%= f.collection_select :category_ids, Category.all,:id,:name,{ :prompt => "Please select"}, { :multiple => true,class: "form-control"} %><br>
       </div>
     </div>
 
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="actions">
-          <%= f.submit :create %>
-        </div>
+      <label class="col-md-4 control-label" for=""></label>
+      <div class="col-md-8">
+          <%= f.submit :save,class: "btn btn-primary" %>
+        <button id="button2id" class="btn btn-danger">Cancel</button>
       </div>
     </div>
 

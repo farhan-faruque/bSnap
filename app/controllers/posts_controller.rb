@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :set_search, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action  :authenticate_user!, only: [:new,:edit, :update, :destroy]
 
   # GET /searches
@@ -18,7 +18,9 @@ class PostsController < ApplicationController
   # GET /searches/new
   def new
     @post = Post.new
-    @post_attachments = @post.post_attachments.build
+    3.times do
+      @post.post_attachments.build
+    end
   end
 
   # GET /searches/1/edit
@@ -70,7 +72,7 @@ class PostsController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_search
+  def set_post
     @post = Post.find(params[:id])
   end
 
