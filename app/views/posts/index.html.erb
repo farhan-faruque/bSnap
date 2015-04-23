@@ -1,21 +1,33 @@
-<div class="container-fluid" style="background-color:#e8e8e8">
-  <div class="container container-pad" id="property-listings">
+<!--<div class="container-fluid" style="background-color:#e8e8e8">-->
+  <!--<div class="container container-pad" id="property-listings">-->
 
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Listing</h1>
-        <p>post listing</p>
-      </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--<h1>Listing</h1>-->
+        <!--<p>post listing</p>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="row">-->
+      <!--<div class="col-sm-8">-->
+
+        <!--->
+
+      <!--</div>&lt;!&ndash; End Col &ndash;&gt;-->
+
+    <!--</div>&lt;!&ndash; End row &ndash;&gt;-->
+
+  <!--</div>&lt;!&ndash; End container &ndash;&gt;-->
+<!--</div>-->
+
+<div class="container-fluid" style="background-color:#e8e8e8">
+
+    <div class="col-md-offset-4">
+       <h1>Listing</h1>
     </div>
 
-    <div class="row">
-      <div class="col-sm-8">
+  <div class="col-md-8 col-md-offset-2">
+    <%= render @posts %>
+  </div>
 
-        <%= render @posts %>
-
-      </div><!-- End Col -->
-
-    </div><!-- End row -->
-
-  </div><!-- End container -->
 </div>
