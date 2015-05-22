@@ -1,0 +1,21 @@
+<div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+  <div class="media">
+    <a class="pull-left" href="#" target="_parent">
+      <% unless post.post_attachments.first.nil? %><%= cl_image_tag( post.post_attachments.first.avatar, :width => 150, :height => 200, :crop => :fill) %>
+      <% end %>
+    </a>
+
+    <div class="clearfix visible-sm"></div>
+
+    <div class="media-body fnt-smaller">
+      <a href="#" target="_parent"></a>
+
+      <h4 class="media-heading">
+        <a href="#" target="_parent"><%= post.title %> <small class="pull-right"><%=  post.location %></small></a></h4>
+
+      <p class="hidden-xs"><%= post.description%></p>
+      <span class="fnt-smaller fnt-lighter fnt-arial"><%=  post.user %></span>
+    </div>
+  </div>
+
+</div>
