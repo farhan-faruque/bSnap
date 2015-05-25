@@ -11,4 +11,9 @@ module PostsHelper
       cl_image_tag( post.post_attachments.first.avatar, :width => 150, :height => 200, :crop => :fill)
     end
   end
+
+  def get_carousal_class(pos)
+    return   pos == 0 ? "active item" : "item"
+
+  end
 end
