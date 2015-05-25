@@ -1,33 +1,50 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div class="row">
-      <h1 class="text-center"><%= @post.title%></h1>
+      <h1 class="text-center"><%= @post.title %></h1>
       <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
         <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-          <% @post_attachments.size.times do |x| %>
-              <li data-target="#myCarousel" data-slide-to="0" class="<%= 'active' if x == 0 %> "></li>
-          <% end %>
-        </ol>
+        <% if @post_attachments && @post_attachments.size > 1 %>
+            <ol class="carousel-indicators">
+              <% @post_attachments.size.times do |x| %>
+                  <li data-target="#myCarousel" data-slide-to="0" class="<%= 'active' if x == 0 %> "></li>
+              <% end %>
+            </ol>
+        <% end %>
 
         <!-- Carousel items -->
         <div class="carousel-inner">
-          <% @post_attachments.each_with_index do |item,index| %>
-              <div class="<%= get_carousal_class(index)%>" >
-                <div class="carousel-caption">
-                <%= cl_image_tag(item.avatar, :crop => :fill) %>
+          <% if @post_attachments && @post_attachments.size > 0 %>
+              <% @post_attachments.each_with_index do |item,index| %>
+                  <div class="<%= get_carousal_class(index)%>" >
+                    <div class="carousel-caption">
+                      <%= cl_image_tag(item.avatar, :crop => :fill) %>
+                    </div>
                   </div>
+              <% end %>
+          <% else %>
+              <div class="<%= get_carousal_class(0)%>" >
+                <div class="carousel-caption">
+                  <%= image_tag("img_no_image_avail.png",:width => 150, :height => 200, :crop => :fill) %>
+                </div>
               </div>
-          <%end%>
+          <% end %>
         </div>
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
+
+        <% if @post_attachments && @post_attachments.size > 1 %>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+            </div>
+        <% end %>
+        </div>
+    <div class="row">
+      <h5> <%= @post.location %></h5>
+      <h5> <%= @post.description %></h5>
     </div>
   </div>
 </div>

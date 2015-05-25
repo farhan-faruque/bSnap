@@ -14,6 +14,6 @@ module PostsHelper
 
   def get_carousal_class(pos)
     return   pos == 0 ? "active item" : "item"
-
   end
+
 end
