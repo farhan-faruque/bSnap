@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_one :profile, dependent: :destroy
+  belongs_to :location
   has_many :authentications, dependent: :destroy
 
   def make_random_password
@@ -33,5 +34,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def favourites
+
+  end
 
 end
