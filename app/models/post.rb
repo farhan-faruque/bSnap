@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  #extend FriendlyId
+  extend FriendlyId
 
   belongs_to :location
   belongs_to :user
@@ -8,9 +8,12 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :post_attachments
 
   #friendly_id :slug_candidates, use: [:slugged, :finders]
-
-  def to_param
-    "#{id} #{title}".parameterize
+  friendly_id :title, use: :slugged
+  # def to_param
+  #   "#{id} #{title}".parameterize
+  # end
+  def should_generate_new_friendly_id?
+    new_record? || slug.nil? || slug.blank? # you can add more condition here
   end
 
 end
