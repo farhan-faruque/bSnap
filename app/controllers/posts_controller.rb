@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action  :authenticate_user!, only: [:new,:edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy,:favourite]
+  before_action  :authenticate_user!, only: [:new,:edit, :update, :destroy,:favourite]
 
   # GET /searches
   # GET /searches.json
@@ -67,6 +67,23 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to searches_url, notice: 'Search was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # PUT favorite post
+  def favourite
+    type = params[:type]
+    if type == "favourite"
+      current_user.favorites << @post
+      redirect_to :back, notice: 'You favorited #{@post.title}'
+
+    elsif type == "favourite"
+      current_user.favorites.delete(@post)
+      redirect_to :back, notice: 'Unfavorited #{@post.title}'
+
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
     end
   end
 

@@ -37,8 +37,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def favourites
-
-  end
-
 end
