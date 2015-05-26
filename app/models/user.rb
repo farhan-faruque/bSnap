@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_one :profile, dependent: :destroy
-  belongs_to :location
+  #belongs_to :location
   has_many :authentications, dependent: :destroy
 
   has_many :favourite_posts

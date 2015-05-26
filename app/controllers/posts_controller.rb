@@ -73,11 +73,11 @@ class PostsController < ApplicationController
   # PUT favorite post
   def favourite
     type = params[:type]
-    if type.eql? "favourite"
+    if type.to_sym.eql? :favourite
       current_user.favorites << @post
       redirect_to :back, notice: 'You favorited #{@post.title}'
 
-    elsif type.eql? "unfavourite"
+    elsif type.to_sym.eql?  :unfavourite
       current_user.favorites.delete(@post)
       redirect_to :back, notice: 'Unfavorited #{@post.title}'
 
