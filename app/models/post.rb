@@ -27,6 +27,7 @@ class Post < ActiveRecord::Base
   end
 
   def favourites?(user)
-    self.favourite_posts.exists?(user_id: user.id)
+    self.favorited_by.exists?(user.id)
   end
+
 end

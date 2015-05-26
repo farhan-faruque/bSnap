@@ -16,4 +16,16 @@ module PostsHelper
     return   pos == 0 ? "active item" : "item"
   end
 
+  def star_type(post)
+    logger.debug post.favourites?(current_user)
+    return :unfavourite if post.favourites?(current_user)
+    :favourite
+  end
+
+  def star_class(post)
+    return "glyphicon glyphicon-star" if post.favourites?(current_user)
+    "glyphicon glyphicon-star-empty"
+  end
+
+
 end

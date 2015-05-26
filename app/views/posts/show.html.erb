@@ -43,13 +43,21 @@
         <% end %>
         </div>
     <div class="row">
-      <div class="row">
-        <% unless @post.user.eql? (current_user) %>
 
+      <div class="row">
+
+        <% if user_signed_in? %>
+            <% unless @post.user.eql? (current_user) %>
+                <%= link_to favourite_post_path(@post,type: star_type(@post)), method: :put  do %>
+                    <span class="<%= star_class(@post) %>"></span>
+                <% end %>
+            <% end %>
+        <%else %>
             <%= link_to favourite_post_path(@post,type: "favourite"), method: :put  do %>
                 <span class="glyphicon glyphicon-star-empty"></span>
             <% end %>
         <% end %>
+
         <h5> <%= @post.location %></h5>
         <h5> <%= @post.description %></h5>
       </div>

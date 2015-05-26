@@ -77,7 +77,7 @@ class PostsController < ApplicationController
       current_user.favorites << @post
       redirect_to :back, notice: 'You favorited #{@post.title}'
 
-    elsif type == "favourite"
+    elsif type == "unfavourite"
       current_user.favorites.delete(@post)
       redirect_to :back, notice: 'Unfavorited #{@post.title}'
 
