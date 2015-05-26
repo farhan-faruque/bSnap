@@ -1,0 +1,2 @@
+module PostFavouriteHelper
+end

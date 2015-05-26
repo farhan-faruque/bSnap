@@ -43,8 +43,15 @@
         <% end %>
         </div>
     <div class="row">
-      <h5> <%= @post.location %></h5>
-      <h5> <%= @post.description %></h5>
+      <div class="row">
+        <% unless @post.user.eql? (current_user) %>
+            <a>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            </a>
+        <% end %>
+        <h5> <%= @post.location %></h5>
+        <h5> <%= @post.description %></h5>
+      </div>
     </div>
   </div>
 </div>

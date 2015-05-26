@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   belongs_to :location
   has_many :authentications, dependent: :destroy
 
+  has_many :favourite_posts
+  has_many :favorites, through: :favourite_posts, source: :post
+
   def make_random_password
     self.password = self.password_confirmation = Devise.friendly_token[0,10]
   end
