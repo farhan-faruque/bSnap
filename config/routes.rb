@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     put :favourite, on: :member
   end
 
+  resources :profile
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users,:controllers => { registrations: 'users/registrations',
