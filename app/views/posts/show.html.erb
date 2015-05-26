@@ -48,8 +48,8 @@
 
         <% if user_signed_in? %>
             <% unless @post.user.eql? (current_user) %>
-                <%= link_to favourite_post_path(@post,type: star_type(@post)), method: :put  do %>
-                    <span class="<%= star_class(@post) %>"></span>
+                <%= link_to favourite_post_path(@post,type: star_type), method: :put  do %>
+                    <span class="<%= star_class %>"></span>
                 <% end %>
             <% end %>
         <%else %>
