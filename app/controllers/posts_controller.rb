@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(search_params)
-        format.html { redirect_to @post, notice: 'Search was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @search }
       else
         format.html { render :edit }
@@ -65,26 +65,38 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to searches_url, notice: 'Search was successfully destroyed.' }
+      format.html { redirect_to searches_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   # PUT favorite post
   def favourite
-    type = params[:type]
-    if type.to_sym.eql? :favourite
-      current_user.favorites << @post
-      redirect_to :back, notice: 'You favorited #{@post.title}'
+    # type = params[:type]
+    # if type.to_sym.eql? :favourite
+    #   current_user.favorites << @post
+    #   redirect_to :back, notice: 'You favorited #{@post.title}'
+    #
+    # elsif type.to_sym.eql?  :unfavourite
+    #   current_user.favorites.delete(@post)
+    #   redirect_to :back, notice: 'Unfavorited #{@post.title}'
+    #
+    # else
+    #   # Type missing, nothing happens
+    #   redirect_to :back, notice: 'Nothing happened.'
+    # end
 
-    elsif type.to_sym.eql?  :unfavourite
-      current_user.favorites.delete(@post)
-      redirect_to :back, notice: 'Unfavorited #{@post.title}'
-
+    if current_user.present?
+      @post.toggle_favorites!(current_user)
+      respond_to do |format|
+        #format.html { redirect_to searches_url, notice: 'Post was successfully destroyed.' }
+        #format.json { render :favourite => current_user.favorites.include?(@post) }
+        format.json { render json: {added: current_user.favorites.include?(@post)}}
+      end
     else
-      # Type missing, nothing happens
-      redirect_to :back, notice: 'Nothing happened.'
+      render nothing: true, :status => :unauthorized
     end
+
   end
 
   private

@@ -30,4 +30,8 @@ class Post < ActiveRecord::Base
     self.favorited_by.exists?(user.id)
   end
 
+  def toggle_favorites!(user)
+    favourites?(user) ? favorited_by.delete(user) : favorited_by.push(user)
+  end
+
 end

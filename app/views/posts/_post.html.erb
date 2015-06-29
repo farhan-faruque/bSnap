@@ -11,6 +11,10 @@
       <h5> <%= link_to post.title,post_path(post),class: "fnt-bigger"%> <small class="pull-right"><%= user_name(post) %></small></h5>
       <h6><%= post.description %></h6>
       <h6> <%= post.location %></h6>
+      <h6> Posted at: <%= post.created_at.strftime('%-e %B %Y') %></h6>
+      <% if post.user.present? %>
+        <h6> by: <%= link_to post.user.user_name,"#" %></h6>
+      <% end%>
     </div>
   </div>
 
