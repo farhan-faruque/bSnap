@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
+  friendly_id :user_name, use: [:slugged, :history]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -35,6 +38,17 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def should_generate_new_friendly_id?
+    new_record? || slug.nil? || slug.blank? # you can add more condition here
+  end
+
+  def slug_candidates
+    [
+        :user_name,
+        [:user_name, :id]
+    ]
   end
 
 end

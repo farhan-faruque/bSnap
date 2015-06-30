@@ -5,12 +5,20 @@ Rails.application.routes.draw do
     put :favourite, on: :member
   end
 
-  resources :profile
+  resources :profile do
+    member do
+      get :ads
+    end
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users,:controllers => { registrations: 'users/registrations',
                                       :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  get ':id' => 'users#show', as: :user_profile
+  get ':id/ads' => 'users#ads', as: :user_ads
+  get ':id/favorites' => 'users#ads', as: :user_favorites
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
