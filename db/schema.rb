@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630070423) do
+ActiveRecord::Schema.define(version: 20150702065114) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -106,6 +106,10 @@ ActiveRecord::Schema.define(version: 20150630070423) do
     t.datetime "updated_at",              null: false
     t.string   "image",       limit: 255
     t.string   "slug",        limit: 255
+    t.string   "status",      limit: 255
+    t.date     "deadline"
+    t.date     "starts_at"
+    t.date     "ends_at"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", using: :btree
