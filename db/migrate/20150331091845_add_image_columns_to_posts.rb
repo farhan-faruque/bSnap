@@ -1,9 +1,9 @@
 class AddImageColumnsToPosts < ActiveRecord::Migration
   def self.up
-    add_attachment :posts, :image
+    #add_attachment :posts, :image
   end
 
   def self.down
-    remove_attachment :posts, :image
+    #remove_attachment :posts, :image
   end
 end
