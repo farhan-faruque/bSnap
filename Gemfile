@@ -32,6 +32,7 @@ gem 'sendgrid-rails'
 gem 'carrierwave'
 gem 'cloudinary'
 
+gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
 # Use ActiveModel has_secure_password
