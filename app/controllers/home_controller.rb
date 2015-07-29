@@ -1,7 +1,19 @@
 class HomeController < ApplicationController
 
   def index
-    @posts = Post.all
-    logger.debug @posts.size
+
+    if params[:q].nil?
+      @posts = Post.all
+    else
+      @posts = Post.search params[:q]
+    end
+
+    logger.debug @posts.as_json
+
   end
+
+  def search
+
+  end
+
 end

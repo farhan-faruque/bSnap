@@ -5,7 +5,7 @@ module PostsHelper
   end
 
   def post_image(post)
-      return image_tag("img_no_image_avail.png",:width => 150, :height => 200, :crop => :fill) if  post.post_attachments.first.nil?
+      return image_tag("img_no_image_avail.png",:width => 150, :height => 200, :crop => :fill) #if  post.post_attachments.nil? || post.post_attachments.first.nil?
       cl_image_tag( post.post_attachments.first.avatar, :width => 150, :height => 200, :crop => :fill)
   end
 

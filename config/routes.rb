@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :searches
 
+
   resources :posts do
     put :favourite, on: :member
   end
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
       get :ads
     end
   end
+
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
